@@ -57,7 +57,7 @@ public abstract class Creature : MonoBehaviour
 
     private void MoveTo()
     {
-        if (_target == Vector3.zero)
+        if (_target != Vector3.zero)
         {
             _agent.SetDestination(_target);
 
