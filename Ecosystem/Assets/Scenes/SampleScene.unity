@@ -153,27 +153,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 32628887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &32628889
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -252,12 +255,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32628887}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -72.59999, y: 2.06, z: 22.8}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &32628893
 CapsuleCollider:
@@ -303,27 +306,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 80136112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &80136114
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -402,12 +408,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80136112}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 30.3, y: 2.06, z: -42.4}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &80136118
 CapsuleCollider:
@@ -497,6 +503,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
   m_PrefabInstance: {fileID: 95257046}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &214412613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214412614}
+  m_Layer: 0
+  m_Name: All Herbs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214412614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214412613}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1970770119}
+  - {fileID: 1163734921}
+  - {fileID: 442837650}
+  - {fileID: 1308811030}
+  - {fileID: 80136117}
+  - {fileID: 1174700585}
+  - {fileID: 899414738}
+  - {fileID: 749698424}
+  - {fileID: 1710387288}
+  - {fileID: 1205570892}
+  - {fileID: 588264071}
+  - {fileID: 1303555390}
+  - {fileID: 791658625}
+  - {fileID: 232319228}
+  - {fileID: 1588526574}
+  - {fileID: 1050593903}
+  - {fileID: 610344845}
+  - {fileID: 32628892}
+  - {fileID: 854444772}
+  - {fileID: 493311723}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232319223
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,27 +583,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 232319223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &232319225
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -626,12 +685,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232319223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -114.6, y: 2.06, z: 45.1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &232319229
 CapsuleCollider:
@@ -677,27 +736,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 442837645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &442837647
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -776,12 +838,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442837645}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.84, y: 2.06, z: -56.66}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &442837651
 CapsuleCollider:
@@ -827,27 +889,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 493311718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &493311720
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -926,12 +991,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493311718}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -71.59999, y: 2.06, z: -75.8}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &493311724
 CapsuleCollider:
@@ -1043,156 +1108,6 @@ Transform:
   m_Father: {fileID: 768925265}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &563323740
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 563323744}
-  - component: {fileID: 563323743}
-  - component: {fileID: 563323742}
-  - component: {fileID: 563323746}
-  - component: {fileID: 563323741}
-  - component: {fileID: 563323745}
-  m_Layer: 0
-  m_Name: Herbivores Animal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!195 &563323741
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563323740}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!23 &563323742
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563323740}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 14f610d2e5016d247a26012d1e52216a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &563323743
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563323740}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &563323744
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563323740}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8600006, y: 2.06, z: -27.889984}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &563323745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563323740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CreatureType: 1
-  NutritionalValue: 0
-  Health: 100
-  Hunger: 100
-  Agent: {fileID: 0}
-  Speed: 0
-  AttackPower: 0
-  EatRadius: 5
-  EatZoneColor: {r: 0, g: 0.26774764, b: 1, a: 1}
-  IsHunger: 0
-  Target: {x: 0, y: 0, z: 0}
-  Distance: 0
-  MinX: -180
-  MaxX: 180
-  MinZ: -180
-  MaxZ: 180
-  Radius: 20
-  FindZoneColor: {r: 1, g: 0.9504018, b: 0, a: 1}
---- !u!136 &563323746
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563323740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &588264066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,27 +1138,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 588264066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &588264068
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1322,12 +1240,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588264066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 100.59999, y: 2.06, z: 19.7}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &588264072
 CapsuleCollider:
@@ -1373,27 +1291,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 610344840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &610344842
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1472,12 +1393,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610344840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -59.09999, y: 2.06, z: -18.100002}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &610344846
 CapsuleCollider:
@@ -1616,27 +1537,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 749698419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &749698421
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1715,12 +1639,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749698419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 113.1, y: 2.06, z: 77.4}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &749698425
 CapsuleCollider:
@@ -1802,27 +1726,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 791658620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &791658622
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1901,12 +1828,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791658620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -100.59999, y: 2.06, z: -39.300003}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &791658626
 CapsuleCollider:
@@ -1922,6 +1849,72 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &843587974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843587977}
+  - component: {fileID: 843587976}
+  - component: {fileID: 843587975}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &843587975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843587974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &843587976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843587974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &843587977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843587974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854444767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,27 +1945,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 854444767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &854444769
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2051,12 +2047,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854444767}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -30.300003, y: 2.06, z: 22.8}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &854444773
 CapsuleCollider:
@@ -2102,27 +2098,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 899414733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &899414735
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2201,12 +2200,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899414733}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 70.8, y: 2.06, z: 77.4}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &899414739
 CapsuleCollider:
@@ -2300,7 +2299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.30345774, y: -0.4883524, z: 0.1859955, w: 0.7967628}
-  m_LocalPosition: {x: 40.680008, y: 39.089993, z: -51.349976}
+  m_LocalPosition: {x: 43.69, y: 39.089993, z: -45.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2368,27 +2367,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1050593898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1050593900
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2467,12 +2469,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050593898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.799995, y: 2.06, z: 80.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1050593904
 CapsuleCollider:
@@ -2518,27 +2520,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1163734916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1163734918
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2617,12 +2622,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163734916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 42.2, y: 2.06, z: -15.8}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1163734922
 CapsuleCollider:
@@ -2668,27 +2673,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1174700580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1174700582
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2767,12 +2775,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174700580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.3, y: 2.06, z: 42}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1174700586
 CapsuleCollider:
@@ -2818,27 +2826,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1205570887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1205570889
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2917,12 +2928,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205570887}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 58.3, y: 2.06, z: 19.7}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1205570893
 CapsuleCollider:
@@ -2998,27 +3009,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1303555385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1303555387
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3097,12 +3111,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303555385}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 59.3, y: 2.06, z: -78.9}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1303555391
 CapsuleCollider:
@@ -3148,27 +3162,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308811025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1308811027
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3247,12 +3264,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308811025}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -12.3, y: 2.06, z: -44}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1308811031
 CapsuleCollider:
@@ -3298,27 +3315,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588526569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1588526571
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3397,12 +3417,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588526569}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -60.09999, y: 2.06, z: 80.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1588526575
 CapsuleCollider:
@@ -3448,27 +3468,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1710387283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CreatureType: 2
   NutritionalValue: 0
   Health: 100
   Hunger: 100
+  JoyPercent: 0
+  EnergyConsumption: 0
   Agent: {fileID: 0}
   Speed: 0
   AttackPower: 0
   EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
   IsHunger: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  Radius: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
 --- !u!195 &1710387285
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3547,12 +3570,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710387283}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 71.8, y: 2.06, z: -21.2}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 214412614}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1710387289
 CapsuleCollider:
@@ -3568,156 +3591,11 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1970770114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1970770119}
-  - component: {fileID: 1970770118}
-  - component: {fileID: 1970770117}
-  - component: {fileID: 1970770120}
-  - component: {fileID: 1970770116}
-  - component: {fileID: 1970770115}
-  m_Layer: 0
-  m_Name: Herb
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1970770115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970770114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed353a0e56b4d469c42cc6615aa586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CreatureType: 2
-  NutritionalValue: 0
-  Health: 100
-  Hunger: 100
-  Agent: {fileID: 0}
-  Speed: 0
-  AttackPower: 0
-  EatRadius: 0
-  EatZoneColor: {r: 1, g: 1, b: 1, a: 1}
-  IsHunger: 0
-  Target: {x: 0, y: 0, z: 0}
-  Distance: 0
-  MinX: 0
-  MaxX: 0
-  MinZ: 0
-  MaxZ: 0
-  Radius: 0
-  FindZoneColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!195 &1970770116
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970770114}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!23 &1970770117
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970770114}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: c7c3c9dedcbe7504f933290be8f592fd, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1970770118
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970770114}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1970770119
+--- !u!4 &1970770119 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+  m_PrefabInstance: {fileID: 8095391557479203883}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970770114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8600006, y: 2.06, z: 1.4}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1970770120
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970770114}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2047447875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,156 +3644,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2124627867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2124627871}
-  - component: {fileID: 2124627870}
-  - component: {fileID: 2124627869}
-  - component: {fileID: 2124627873}
-  - component: {fileID: 2124627868}
-  - component: {fileID: 2124627872}
-  m_Layer: 0
-  m_Name: Carnivores Animal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!195 &2124627868
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124627867}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!23 &2124627869
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124627867}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 4428a5550abc44b47a8741e04b291b0f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2124627870
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124627867}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2124627871
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124627867}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.900009, y: 2.1699953, z: -25.699982}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2124627872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124627867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8552b262f75de4baf70de0b6534351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CreatureType: 0
-  NutritionalValue: 0
-  Health: 100
-  Hunger: 100
-  Agent: {fileID: 0}
-  Speed: 0
-  AttackPower: 0
-  EatRadius: 5
-  EatZoneColor: {r: 0, g: 0.138345, b: 1, a: 1}
-  IsHunger: 0
-  Target: {x: 0, y: 0, z: 0}
-  Distance: 0
-  MinX: -180
-  MaxX: 180
-  MinZ: -180
-  MaxZ: 180
-  Radius: 246.3
-  FindZoneColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!136 &2124627873
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124627867}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1708666796430930274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4126,6 +3854,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5070032257722141023, guid: ad3c03c04d6ba3b42b67bce428cef10f, type: 3}
   m_PrefabInstance: {fileID: 5070032257270535483}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5677928031105797637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4494875495488319289, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_Name
+      value: Carnivores Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.900009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1699953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.699982
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495488319293, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494875495930681727, guid: 4274362172401f4488a360b4682112bf, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4274362172401f4488a360b4682112bf, type: 3}
 --- !u!1001 &6542701798886250212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4196,3 +3985,117 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6542701799895784229, guid: 87544c290504c4a40b42627dd37a2664, type: 3}
   m_PrefabInstance: {fileID: 6542701798886250212}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6975463053813286929
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9095838517129264607, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_Name
+      value: Herbivores Animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.889984
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095838517129264611, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
+--- !u!1001 &8095391557479203883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 214412614}
+    m_Modifications:
+    - target: {fileID: 8095391555516962025, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_Name
+      value: Herb
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095391555516962028, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}

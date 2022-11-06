@@ -10,7 +10,7 @@ public class Carnivore : Creature
         {
             IsHunger = true;
             Creature creature = FindFoodTarget();
-            
+
             if (creature)
             {
                 if (creature.CreatureType == CreatureType.Herbivores)

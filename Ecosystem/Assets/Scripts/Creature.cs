@@ -11,6 +11,8 @@ public abstract class Creature : MonoBehaviour
     public float NutritionalValue;
     public float Health = 100f; // Здоровье
     public float Hunger = 100f; // Голод
+    public int JoyPercent;
+    public float EnergyConsumption;
     public NavMeshAgent Agent;
 
     [Header("Creature Sub-Stats")]
@@ -30,12 +32,13 @@ public abstract class Creature : MonoBehaviour
     public float MinZ = -180f, MaxZ = 180f;
     public float Radius = 10f;
     public Color FindZoneColor;
-    private Creature _findedCreature;
+    public Creature FindedCreature;
 
     private void Start()
     {
         Speed = Random.Range(5f, 10f);
         AttackPower = Random.Range(0f, 10f);
+        EnergyConsumption = Random.Range(1f, 3f);
         Agent = GetComponent<NavMeshAgent>();
         Agent.speed = Speed;
         CalculateNutritionalValue();
@@ -43,12 +46,14 @@ public abstract class Creature : MonoBehaviour
 
     private void Update()
     {
+        CheckStats();
+        SubtractStats();
         DoAction();
     }
 
     private void CalculateNutritionalValue()
     {
-        NutritionalValue = (Speed * AttackPower) / 2;
+        NutritionalValue = Mathf.RoundToInt((Speed * AttackPower) / 2);
 
         if (NutritionalValue <= 0f)
         {
@@ -56,21 +61,55 @@ public abstract class Creature : MonoBehaviour
         }
     }
 
+    private void CalculateJoy()
+    {
+        int sumHealthHungerPercent = Mathf.RoundToInt(Health + Hunger);
+        JoyPercent = Mathf.RoundToInt(GetPercent(200, sumHealthHungerPercent)); //Слева указывается стопроцентное значение (но само число не является процентным), справа текущее значение (не процентное число)
+    }
+
+    private int GetPercent(int oneHundredValueInPercent, int currentValue)
+    {
+        int percent = currentValue * 100 / oneHundredValueInPercent;
+        return percent;
+    }
+
+    private void CheckStats()
+    {
+        if (Health <= 0f)
+        {
+            gameObject.SetActive(false);
+            Health = 0;
+        }
+
+        if (Hunger <= 0f)
+        {
+            Health -= Time.deltaTime;
+            Hunger = 0f;
+        }
+
+        CalculateJoy();
+    }
+
+    private void SubtractStats()
+    {
+        Hunger -= Time.deltaTime * EnergyConsumption;
+    }
+
     public virtual void DoAction()
     {
         if (Hunger > 50f)
         {
             CreateMovementPoint();
+            MoveTo();
         }
-
-        MoveTo();
     }
 
     public void CreateMovementPoint()
     {
         if (Distance <= 5f)
         {
-            Target = new Vector3(Random.Range(MinX, MaxX), transform.position.y, Random.Range(MinZ, MaxZ));
+            Vector3 newPointPosition = new Vector3(Random.Range(MinX, MaxX), transform.position.y, Random.Range(MinZ, MaxZ));
+            Target = newPointPosition;
         }
     }
 
@@ -81,22 +120,14 @@ public abstract class Creature : MonoBehaviour
             Agent.SetDestination(Target);
             Distance = (Target - transform.position).sqrMagnitude;
                 
-            Debug.LogError(Distance);
             if (Distance < 5f)
             {
                 if (IsHunger)
                 {
                     Eat();
                 }
-                return;
             }
         }
-    }
-
-    public void SetTarget(Creature creature)
-    {
-        Target = creature.transform.position;
-        return;
     }
 
     public Creature FindFoodTarget()
@@ -107,34 +138,44 @@ public abstract class Creature : MonoBehaviour
         {
             if (colliders != null)
             {
-                _findedCreature = colliders[Random.Range(0, colliders.Length)].GetComponent<Creature>();
+                Creature findedCreature = colliders[Random.Range(0, colliders.Length)].GetComponent<Creature>();
+                return findedCreature;
             }
             else
             {
                 CreateMovementPoint();
             }
         }
-        return _findedCreature;
+        return null;
+    }
+    
+    public void SetTarget(Creature creature)
+    {
+        Target = creature.transform.position;
+        FindedCreature = creature;
+        return;
     }
 
     private void GetNutrients()
     {
-        Hunger += _findedCreature.NutritionalValue;
+        Health += FindedCreature.NutritionalValue / FindedCreature.Health;
+        Hunger += FindedCreature.NutritionalValue;
     }
 
     private void Eat()
     {
-        Debug.LogError("Eaaat");
-        // Ошибки важные были решены, теперь надо здесь написать проверку какой коллайдер ест существо иначе в проверке он будет высвечивать ошибку, что не найдено существо
-        if (_findedCreature.Health <= 0f)
+        if (FindedCreature)
         {
-            GetNutrients();
-            Destroy(_findedCreature.gameObject);
-            _findedCreature = null;
-        }
-        else
-        {
-            _findedCreature.TakeDamage((AttackPower*Speed)/2);
+            if (FindedCreature.Health <= 0f)
+            {
+                GetNutrients();
+                FindedCreature.gameObject.SetActive(false);
+                FindedCreature = null;
+            }
+            else
+            {
+                FindedCreature.TakeDamage((AttackPower*Speed)/2);
+            }
         }
     }
 
