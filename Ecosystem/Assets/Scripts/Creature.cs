@@ -46,9 +46,12 @@ public abstract class Creature : MonoBehaviour
 
     private void Update()
     {
-        CheckStats();
-        SubtractStats();
-        DoAction();
+        if (CreatureType != CreatureType.Herb)
+        {
+            CheckStats();
+            SubtractStats();
+            DoAction();
+        }
     }
 
     private void CalculateNutritionalValue()
@@ -158,7 +161,7 @@ public abstract class Creature : MonoBehaviour
 
     private void GetNutrients()
     {
-        Health += FindedCreature.NutritionalValue / FindedCreature.Health;
+        Health += FindedCreature.NutritionalValue;
         Hunger += FindedCreature.NutritionalValue;
     }
 
