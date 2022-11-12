@@ -148,6 +148,7 @@ MonoBehaviour:
   AttackPower: 0
   UseRadius: 5
   EatZoneColor: {r: 0, g: 0.138345, b: 1, a: 1}
+  FindedCreature: {fileID: 0}
   IsHunger: 0
   IsReadyToBreed: 0
   Target: {x: 0, y: 0, z: 0}
@@ -156,9 +157,8 @@ MonoBehaviour:
   MaxX: 180
   MinZ: -180
   MaxZ: 180
-  RadiusVision: 20
+  RadiusVision: 40
   FindZoneColor: {r: 1, g: 0, b: 0, a: 1}
-  FindedCreature: {fileID: 0}
 --- !u!114 &5677928032357609881
 MonoBehaviour:
   m_ObjectHideFlags: 0

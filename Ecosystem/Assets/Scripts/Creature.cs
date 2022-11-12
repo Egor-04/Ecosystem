@@ -98,12 +98,7 @@ public abstract class Creature : MonoBehaviour
         
         if (BreedTime <= 0f)
         {
-            IsReadyToBreed = true;
             BreedTime = 0f;
-        }
-        else
-        {
-            IsReadyToBreed = false;
         }
 
         Health = Mathf.Clamp(Health, 0f, 100f);
@@ -139,9 +134,17 @@ public abstract class Creature : MonoBehaviour
 
     public void MoveTo()
     {
-        Agent.SetDestination(Target);
-        Distance = (Target - transform.position).sqrMagnitude;
-                
+        if (FindedCreature)
+        {
+            Agent.SetDestination(FindedCreature.transform.position);
+            Distance = (FindedCreature.transform.position - transform.position).sqrMagnitude;
+        }
+        else
+        {
+            Agent.SetDestination(Target);
+            Distance = (Target - transform.position).sqrMagnitude;
+        }
+        
         if (Distance < UseRadius)
         {
             if (IsHunger)
@@ -197,6 +200,7 @@ public abstract class Creature : MonoBehaviour
                 GetNutrients();
                 FindedCreature.gameObject.SetActive(false);
                 FindedCreature = null;
+                Debug.LogError("I Eat Him");
                 return;
             }
             else
@@ -210,12 +214,10 @@ public abstract class Creature : MonoBehaviour
     {
         if (FindedCreature)
         {
-            if (IsReadyToBreed)
-            {
-                Instantiate(gameObject, transform.position + Vector3.forward, Quaternion.identity);
-                BreedTime = BreedTimeCoolDown;
-                return;
-            }
+            Instantiate(gameObject, transform.position + Vector3.forward, Quaternion.identity);
+            BreedTime = BreedTimeCoolDown;
+            IsReadyToBreed = false;
+            return;
         }
     }
 

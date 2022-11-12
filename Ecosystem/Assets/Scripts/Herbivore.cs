@@ -8,8 +8,9 @@ public class Herbivore : Creature
 
         if (BreedTime <= 0f)
         {
-            if (JoyPercent >= 60 && Hunger > 50)
+            if (JoyPercent > 60 && Hunger > 50)
             {
+                IsReadyToBreed = true;
                 Creature creature = FindNearbyCreature();
 
                 if (creature)
@@ -22,11 +23,11 @@ public class Herbivore : Creature
                         }
                     }
                 }
-            }
-            else
-            {
-                CreateMovementPoint();
-                MoveTo();
+                else
+                {
+                    CreateMovementPoint();
+                    MoveTo();
+                }
             }
         }
 

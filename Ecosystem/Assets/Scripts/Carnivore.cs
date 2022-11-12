@@ -10,6 +10,7 @@ public class Carnivore : Creature
         {
             if (JoyPercent >= 60 && Hunger > 50f)
             {
+                IsReadyToBreed = true;
                 Creature creature = FindNearbyCreature();
 
                 if (creature)
@@ -22,11 +23,11 @@ public class Carnivore : Creature
                         }
                     }
                 }
-            }
-            else
-            {
-                CreateMovementPoint();
-                MoveTo();
+                else
+                {
+                    CreateMovementPoint();
+                    MoveTo();
+                }
             }
         }
 
