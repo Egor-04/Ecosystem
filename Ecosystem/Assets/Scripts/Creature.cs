@@ -8,9 +8,12 @@ public abstract class Creature : MonoBehaviour
 {
     [Header("Creature Stats")]
     public CreatureType CreatureType;
+    public int ID;
     public float NutritionalValue;
     public float Health = 100f; // Здоровье
     public float Hunger = 100f; // Голод
+    public float BreedTimeCoolDown = 50f;
+    public float BreedTime = 50f;
     public int JoyPercent;
     public float EnergyConsumption;
     public NavMeshAgent Agent;
@@ -18,11 +21,13 @@ public abstract class Creature : MonoBehaviour
     [Header("Creature Sub-Stats")]
     public float Speed;
     public float AttackPower;
-    public float EatRadius;
+    public float UseRadius;
     public Color EatZoneColor;
+    public Creature FindedCreature;
 
     [Header("Current creature State")]
     public bool IsHunger;
+    public bool IsReadyToBreed;
 
     [Header("Target Point")]
     public Vector3 Target;
@@ -30,14 +35,15 @@ public abstract class Creature : MonoBehaviour
 
     public float MinX = -180f, MaxX = 180f;
     public float MinZ = -180f, MaxZ = 180f;
-    public float Radius = 10f;
+    public float RadiusVision = 10f;
     public Color FindZoneColor;
-    public Creature FindedCreature;
 
-    private void Start()
+    private void Awake()
     {
+        ID = Random.Range(1, 9999999);
         Speed = Random.Range(5f, 10f);
-        AttackPower = Random.Range(0f, 10f);
+        BreedTime = BreedTimeCoolDown;
+        AttackPower = Random.Range(5f, 10f);
         EnergyConsumption = Random.Range(1f, 3f);
         Agent = GetComponent<NavMeshAgent>();
         Agent.speed = Speed;
@@ -81,7 +87,7 @@ public abstract class Creature : MonoBehaviour
         if (Health <= 0f)
         {
             gameObject.SetActive(false);
-            Health = 0;
+            Health = 0f;
         }
 
         if (Hunger <= 0f)
@@ -89,21 +95,36 @@ public abstract class Creature : MonoBehaviour
             Health -= Time.deltaTime;
             Hunger = 0f;
         }
+        
+        if (BreedTime <= 0f)
+        {
+            IsReadyToBreed = true;
+            BreedTime = 0f;
+        }
+        else
+        {
+            IsReadyToBreed = false;
+        }
 
+        Health = Mathf.Clamp(Health, 0f, 100f);
+        Hunger = Mathf.Clamp(Hunger, 0f, 100f);
+        BreedTime = Mathf.Clamp(BreedTime, 0f, BreedTimeCoolDown);
         CalculateJoy();
     }
 
     private void SubtractStats()
     {
+        BreedTime -= Time.deltaTime;
         Hunger -= Time.deltaTime * EnergyConsumption;
     }
 
     public virtual void DoAction()
     {
+        MoveTo();
+        
         if (Hunger > 50f)
         {
             CreateMovementPoint();
-            MoveTo();
         }
     }
 
@@ -118,24 +139,26 @@ public abstract class Creature : MonoBehaviour
 
     public void MoveTo()
     {
-        if (CreatureType != CreatureType.Herb)
-        {
-            Agent.SetDestination(Target);
-            Distance = (Target - transform.position).sqrMagnitude;
+        Agent.SetDestination(Target);
+        Distance = (Target - transform.position).sqrMagnitude;
                 
-            if (Distance < 5f)
+        if (Distance < UseRadius)
+        {
+            if (IsHunger)
             {
-                if (IsHunger)
-                {
-                    Eat();
-                }
+                Eat();
+            }
+
+            if (IsReadyToBreed)
+            {
+                BreedCreature();
             }
         }
     }
 
-    public Creature FindFoodTarget()
+    public Creature FindNearbyCreature()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, Radius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, RadiusVision);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -151,7 +174,7 @@ public abstract class Creature : MonoBehaviour
         }
         return null;
     }
-    
+
     public void SetTarget(Creature creature)
     {
         Target = creature.transform.position;
@@ -174,10 +197,24 @@ public abstract class Creature : MonoBehaviour
                 GetNutrients();
                 FindedCreature.gameObject.SetActive(false);
                 FindedCreature = null;
+                return;
             }
             else
             {
                 FindedCreature.TakeDamage((AttackPower*Speed)/2);
+            }
+        }
+    }
+
+    private void BreedCreature()
+    {
+        if (FindedCreature)
+        {
+            if (IsReadyToBreed)
+            {
+                Instantiate(gameObject, transform.position + Vector3.forward, Quaternion.identity);
+                BreedTime = BreedTimeCoolDown;
+                return;
             }
         }
     }
@@ -190,9 +227,9 @@ public abstract class Creature : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = FindZoneColor;
-        Gizmos.DrawWireSphere(transform.position, Radius);
+        Gizmos.DrawWireSphere(transform.position, RadiusVision);
 
         Gizmos.color = EatZoneColor;
-        Gizmos.DrawWireSphere(transform.position, EatRadius);
+        Gizmos.DrawWireSphere(transform.position, UseRadius);
     }
 }
