@@ -148,6 +148,7 @@ MonoBehaviour:
   AttackPower: 0
   UseRadius: 5
   EatZoneColor: {r: 0, g: 0.26774764, b: 1, a: 1}
+  FindedCreature: {fileID: 0}
   IsHunger: 0
   IsReadyToBreed: 0
   Target: {x: 0, y: 0, z: 0}
@@ -158,7 +159,6 @@ MonoBehaviour:
   MaxZ: 180
   RadiusVision: 50
   FindZoneColor: {r: 1, g: 0.9504018, b: 0, a: 1}
-  FindedCreature: {fileID: 0}
 --- !u!114 &563323741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +174,7 @@ MonoBehaviour:
   _health: {fileID: 2103594491149658457}
   _hunger: {fileID: 2103594490597694848}
   _joy: {fileID: 2103594490479105175}
+  _statCanvas: {fileID: 2103594489661920124}
   _creature: {fileID: 9095838517129264610}
 --- !u!1001 &9095838517755472984
 PrefabInstance:
@@ -235,6 +236,11 @@ PrefabInstance:
 --- !u!4 &2103594490373192942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7136957444475375798, guid: 050ca5f4311343a4fbb0be535c98ddb9, type: 3}
+  m_PrefabInstance: {fileID: 9095838517755472984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &2103594489661920124 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7136957445077073700, guid: 050ca5f4311343a4fbb0be535c98ddb9, type: 3}
   m_PrefabInstance: {fileID: 9095838517755472984}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2103594491149658457 stripped
