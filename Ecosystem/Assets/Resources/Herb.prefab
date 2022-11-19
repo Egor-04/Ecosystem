@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8095391555516962029}
   - component: {fileID: 8095391555516962030}
   - component: {fileID: 8095391555516962019}
-  - component: {fileID: 8095391555516962031}
   - component: {fileID: 8095391555516962024}
+  - component: {fileID: -179018258859924711}
   m_Layer: 0
   m_Name: Herb
   m_TagString: Untagged
@@ -98,7 +98,44 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &8095391555516962031
+--- !u!114 &8095391555516962024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8095391555516962025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CreatureType: 2
+  ID: 0
+  NutritionalValue: 0
+  Health: 100
+  Hunger: 100
+  BreedTimeCoolDown: 50
+  BreedTime: 50
+  JoyPercent: 0
+  EnergyConsumption: 0
+  Agent: {fileID: 0}
+  Speed: 0
+  AttackPower: 0
+  UseRadius: 0
+  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
+  FindedCreature: {fileID: 0}
+  IsHunger: 0
+  IsReadyToBreed: 0
+  Target: {x: 0, y: 0, z: 0}
+  Distance: 0
+  MinX: -180
+  MaxX: 180
+  MinZ: -180
+  MaxZ: 180
+  RadiusVision: 10
+  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!195 &-179018258859924711
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,34 +157,3 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8095391555516962024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8095391555516962025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63fd2c831f73afc46974a106ad9720df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CreatureType: 2
-  NutritionalValue: 0
-  Health: 100
-  Hunger: 100
-  Agent: {fileID: 0}
-  Speed: 0
-  AttackPower: 0
-  EatRadius: 0
-  EatZoneColor: {r: 0, g: 0, b: 0, a: 0}
-  IsHunger: 0
-  Target: {x: 0, y: 0, z: 0}
-  Distance: 0
-  MinX: -180
-  MaxX: 180
-  MinZ: -180
-  MaxZ: 180
-  Radius: 10
-  FindZoneColor: {r: 0, g: 0, b: 0, a: 0}
-  FindedCreature: {fileID: 0}

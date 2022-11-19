@@ -42,12 +42,13 @@ public class CameraControl : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            // „тобы работало правильно, надо сделать камере родительский пустой объект и установить нужны наклон. ј дальше все будет работать в локльных координатах
             _currentMousePos = Input.mousePosition;
             _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity / 100;
             _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity / 100;
-            _cameraNewPosition = new Vector3(_newXPos, _camera.transform.position.y, _newZPos);
+            _cameraNewPosition = new Vector3(_newXPos, _camera.transform.localPosition.y, _newZPos);
 
-            _camera.transform.position = _cameraNewPosition;
+            _camera.transform.localPosition = _cameraNewPosition;
         }
     }
 }

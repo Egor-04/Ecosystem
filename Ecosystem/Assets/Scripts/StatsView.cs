@@ -16,9 +16,9 @@ public class StatsView : MonoBehaviour
 
     private void Update()
     {
-        _health.text = "Health: " + _creature.Health;
-        _hunger.text = "Hunger: " + _creature.Hunger;
-        _joy.text = "Joy: " + _creature.JoyPercent;
+        _health.text = "Health: " + Mathf.RoundToInt(_creature.Health);
+        _hunger.text = "Hunger: " + Mathf.RoundToInt(_creature.Hunger);
+        _joy.text = "Joy: " + Mathf.RoundToInt(_creature.JoyPercent);
     }
 
     private void OnMouseDown()

@@ -62,12 +62,7 @@ public abstract class Creature : MonoBehaviour
 
     private void CalculateNutritionalValue()
     {
-        NutritionalValue = Mathf.RoundToInt((Speed * AttackPower) / 2);
-
-        if (NutritionalValue <= 0f)
-        {
-            NutritionalValue = Random.Range(10f, 40f);
-        }
+        NutritionalValue = Random.Range(10f, 40f);
     }
 
     private void CalculateJoy()
@@ -141,8 +136,11 @@ public abstract class Creature : MonoBehaviour
         }
         else
         {
-            Agent.SetDestination(Target);
-            Distance = (Target - transform.position).sqrMagnitude;
+            if (Agent)
+            {
+                Agent.SetDestination(Target);
+                Distance = (Target - transform.position).sqrMagnitude;
+            }
         }
         
         if (Distance < UseRadius)
@@ -200,7 +198,6 @@ public abstract class Creature : MonoBehaviour
                 GetNutrients();
                 FindedCreature.gameObject.SetActive(false);
                 FindedCreature = null;
-                Debug.LogError("I Eat Him");
                 return;
             }
             else
