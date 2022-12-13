@@ -1,22 +1,47 @@
-using System.Collections.Generic;
 using UnityEngine.EventSystems;
-using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class Item : MonoBehaviour, IPointerDownHandler
+public class Item : MonoBehaviour
 {
     public int Number;
+    [SerializeField] private Transform _container;
+    [SerializeField] private GameObject _objectPrefab;
     [SerializeField] private Color _selectedColor;
     [SerializeField] private Color _standartColor;
     [SerializeField] private Image _image;
     [SerializeField] private ItemSelector _itemSelector;
+    private bool _isSelectedNow;
 
     private void Awake()
     {
+        _container = transform.parent;
+
+        for (int i = 0; i < _container.childCount; i++)
+        {
+            if (gameObject.name == _container.GetChild(i).name)
+            {
+                Number = i;
+            }
+        }
+
         _image = GetComponent<Image>();
-        _standartColor = _image.color;
+    }
+
+    public void SetItemState(bool state)
+    {
+        _isSelectedNow = state;
+    }
+
+    public bool GetItemState()
+    {
+        return _isSelectedNow;
+    }
+
+    public GameObject GetItemPrefab()
+    {
+        return _objectPrefab;
     }
 
     public void SelectColor()

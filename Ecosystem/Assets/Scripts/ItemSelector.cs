@@ -1,11 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemSelector : MonoBehaviour
 {
+    [SerializeField] private bool _isLocked;
     [SerializeField] private int _selectedNumber = 1;
     [SerializeField] private Item[] _items;
+
+    public void SetSelectorState(bool state)
+    {
+        _isLocked = state;
+    }
+
+    public bool GetSelectorState()
+    {
+        return _isLocked;
+    }
+
+    public bool ItemIsSelected()
+    {
+        return _items[_selectedNumber].GetItemState();
+    }
 
     public int GetNumber()
     {
@@ -14,18 +28,21 @@ public class ItemSelector : MonoBehaviour
 
     public void Select(Item item)
     {
+        //SetSelectorState(false); Если нужно блокировать спавн объектов вовремя передвижения
+        item.SetItemState(true);
         _selectedNumber = item.Number;
     }
 
     public GameObject GetSelectedItem()
     {
-        return _items[_selectedNumber].gameObject;
+        return _items[_selectedNumber].GetItemPrefab();
     }
 
     public void DeselectAll()
     {
         for (int i = 0; i < _items.Length; i++)
         {
+            _items[i].SetItemState(false);
             _items[i].DeselectColor();
         }
     }

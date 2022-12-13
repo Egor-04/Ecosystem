@@ -1,39 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TouchSpawn : MonoBehaviour
 {
-    [SerializeField] private LayerMask _layerMask;
     [SerializeField] private ItemSelector _itemSelector;
     [SerializeField] private ParticleSystem _spawnEffect;
-    [SerializeField] private List<ParticleCollisionEvent> _collisionEvents;
+
+    private Vector3 _startMousePos;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Input.mousePosition.y > 146f)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (_itemSelector.GetNumber() != 0)
-            {
-                _spawnEffect.Play();
-            }
+            _startMousePos = Input.mousePosition;
         }
-    }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.layer == _layerMask)
+        Debug.LogError(Input.mousePosition.y);
+        if (Input.GetMouseButtonUp(0) && Input.mousePosition.y > 146f && Input.mousePosition.y < 670f)
         {
-            Debug.LogError("SSSS");
-            int collisionNumbers = _spawnEffect.GetCollisionEvents(other, _collisionEvents);
-
-            int i = 0;
-
-            while (i < collisionNumbers)
+            if (_itemSelector.GetSelectorState() == false)
             {
-                Vector3 position = _collisionEvents[i].intersection - _collisionEvents[i].normal * Random.Range(0.3f, 0.8f);
-                Instantiate(_itemSelector, position, Quaternion.identity);
-                i++;
+                if (Input.mousePosition == _startMousePos || Input.mousePosition == _startMousePos)
+                {
+                    if (_itemSelector)
+                    {
+                        _spawnEffect.Play();
+                    }
+                }
+                //else
+                //{
+                //    _itemSelector.SetSelectorState(true); Ќужно дл€ блокировки во врем€ передвижени€ камеры
+                //}
             }
         }
     }
