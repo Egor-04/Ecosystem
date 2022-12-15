@@ -43,7 +43,9 @@ public class CameraControl : MonoBehaviour
             _currentMousePos = Input.mousePosition;
             _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity / 100;
             _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity / 100;
-            _cameraNewPosition = new Vector3(_newXPos, _camera.transform.localPosition.y, _newZPos);
+            float newClampXPos = Mathf.Clamp(_newXPos, _minX, _maxX);
+            float newClampZPos = Mathf.Clamp(_newZPos, _minZ, _maxZ);
+            _cameraNewPosition = new Vector3(newClampXPos, _camera.transform.localPosition.y, newClampZPos);
 
             _camera.transform.localPosition = _cameraNewPosition;
         }
