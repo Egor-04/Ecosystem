@@ -14,7 +14,6 @@ public class TouchSpawn : MonoBehaviour
             _startMousePos = Input.mousePosition;
         }
 
-        Debug.LogError(Input.mousePosition.y);
         if (Input.GetMouseButtonUp(0) && Input.mousePosition.y > 146f && Input.mousePosition.y < 670f)
         {
             if (_itemSelector.GetSelectorState() == false)

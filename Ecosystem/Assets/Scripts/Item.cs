@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IPointerDownHandler
 {
     public int Number;
     [SerializeField] private Transform _container;
