@@ -153,10 +153,10 @@ MonoBehaviour:
   IsReadyToBreed: 0
   Target: {x: 0, y: 0, z: 0}
   Distance: 0
-  MinX: -180
-  MaxX: 180
-  MinZ: -180
-  MaxZ: 180
+  MinX: -50
+  MaxX: 50
+  MinZ: -50
+  MaxZ: 50
   RadiusVision: 40
   FindZoneColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &5677928032357609881

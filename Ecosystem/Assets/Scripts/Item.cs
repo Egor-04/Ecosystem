@@ -1,7 +1,6 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
-using TMPro;
 
 public class Item : MonoBehaviour, IPointerDownHandler
 {

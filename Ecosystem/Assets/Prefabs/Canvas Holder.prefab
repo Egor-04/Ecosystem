@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7136957444475375798}
   - component: {fileID: 5786682879648321283}
-  - component: {fileID: 5131705671223539610}
   m_Layer: 0
   m_Name: Canvas Holder
   m_TagString: Untagged
@@ -34,21 +33,6 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 28.505, y: -53, z: 0}
 --- !u!114 &5786682879648321283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136957444475375799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 300bc6fec7665c54b96c69cb6cd3cceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _vertical: -53
-  _horizontal: -53
-  _canvas: {fileID: 0}
---- !u!114 &5131705671223539610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -125,6 +123,13 @@ public abstract class Creature : MonoBehaviour
             Vector3 newPointPosition = new Vector3(Random.Range(MinX, MaxX), transform.position.y, Random.Range(MinZ, MaxZ));
             Target = newPointPosition;
         }
+
+        // NEW
+        if (Distance <= 5f && FindedCreature == null)
+        {
+            Vector3 newPointPosition = new Vector3(Random.Range(MinX, MaxX), transform.position.y, Random.Range(MinZ, MaxZ));
+            Target = newPointPosition;
+        }
     }
 
     public void MoveTo()
@@ -132,14 +137,15 @@ public abstract class Creature : MonoBehaviour
         if (FindedCreature)
         {
             Agent.SetDestination(FindedCreature.transform.position);
-            Distance = (FindedCreature.transform.position - transform.position).sqrMagnitude;
+            Distance = (new Vector3(FindedCreature.transform.position.x, transform.position.y, FindedCreature.transform.position.z) - transform.position).sqrMagnitude;
         }
         else
         {
             if (Agent)
             {
+                CreateMovementPoint();// NEW
                 Agent.SetDestination(Target);
-                Distance = (Target - transform.position).sqrMagnitude;
+                Distance = (new Vector3(Target.x, transform.position.y, Target.z) - transform.position).sqrMagnitude;
             }
         }
         
