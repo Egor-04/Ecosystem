@@ -10,8 +10,8 @@ public abstract class Creature : MonoBehaviour
     public float NutritionalValue;
     public float Health = 100f; // Здоровье
     public float Hunger = 100f; // Голод
-    public float BreedTimeCoolDown = 50f;
-    public float BreedTime = 50f;
+    public float BreedingTimeCoolDown = 50f;
+    public float CurrentBreedTime = 50f;
     public int JoyPercent;
     public float EnergyConsumption;
     public NavMeshAgent Agent;
@@ -40,7 +40,7 @@ public abstract class Creature : MonoBehaviour
     {
         ID = Random.Range(1, 9999999);
         Speed = Random.Range(5f, 10f);
-        BreedTime = BreedTimeCoolDown;
+        CurrentBreedTime = BreedingTimeCoolDown;
         AttackPower = Random.Range(5f, 10f);
         EnergyConsumption = Random.Range(1f, 3f);
         Agent = GetComponent<NavMeshAgent>();
@@ -79,8 +79,7 @@ public abstract class Creature : MonoBehaviour
     {
         if (Health <= 0f)
         {
-            gameObject.SetActive(false);
-            Health = 0f;
+            Kill();
         }
 
         if (Hunger <= 0f)
@@ -89,20 +88,20 @@ public abstract class Creature : MonoBehaviour
             Hunger = 0f;
         }
         
-        if (BreedTime <= 0f)
+        if (CurrentBreedTime <= 0f)
         {
-            BreedTime = 0f;
+            CurrentBreedTime = 0f;
         }
 
         Health = Mathf.Clamp(Health, 0f, 100f);
         Hunger = Mathf.Clamp(Hunger, 0f, 100f);
-        BreedTime = Mathf.Clamp(BreedTime, 0f, BreedTimeCoolDown);
+        CurrentBreedTime = Mathf.Clamp(CurrentBreedTime, 0f, BreedingTimeCoolDown);
         CalculateJoy();
     }
 
     private void SubtractStats()
     {
-        BreedTime -= Time.deltaTime;
+        CurrentBreedTime -= Time.deltaTime;
         Hunger -= Time.deltaTime * EnergyConsumption;
     }
 
@@ -134,14 +133,14 @@ public abstract class Creature : MonoBehaviour
 
     public void MoveTo()
     {
-        if (FindedCreature)
+        if (Agent)
         {
-            Agent.SetDestination(FindedCreature.transform.position);
-            Distance = (new Vector3(FindedCreature.transform.position.x, transform.position.y, FindedCreature.transform.position.z) - transform.position).sqrMagnitude;
-        }
-        else
-        {
-            if (Agent)
+            if (FindedCreature)
+            {
+                Agent.SetDestination(FindedCreature.transform.position);
+                Distance = (new Vector3(FindedCreature.transform.position.x, transform.position.y, FindedCreature.transform.position.z) - transform.position).sqrMagnitude;
+            }
+            else
             {
                 CreateMovementPoint();// NEW
                 Agent.SetDestination(Target);
@@ -202,7 +201,7 @@ public abstract class Creature : MonoBehaviour
             if (FindedCreature.Health <= 0f)
             {
                 GetNutrients();
-                FindedCreature.gameObject.SetActive(false);
+                FindedCreature.Kill();
                 FindedCreature = null;
                 return;
             }
@@ -218,7 +217,7 @@ public abstract class Creature : MonoBehaviour
         if (FindedCreature)
         {
             Instantiate(gameObject, transform.position + Vector3.forward, Quaternion.identity);
-            BreedTime = BreedTimeCoolDown;
+            CurrentBreedTime = BreedingTimeCoolDown;
             IsReadyToBreed = false;
             return;
         }
@@ -229,6 +228,13 @@ public abstract class Creature : MonoBehaviour
         Health -= damage;
     }
 
+    public void Kill()
+    {
+        Health = 0f;
+        Agent.enabled = false;
+        gameObject.SetActive(false);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = FindZoneColor;
@@ -236,5 +242,8 @@ public abstract class Creature : MonoBehaviour
 
         Gizmos.color = EatZoneColor;
         Gizmos.DrawWireSphere(transform.position, UseRadius);
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(Target, 2f);
     }
 }

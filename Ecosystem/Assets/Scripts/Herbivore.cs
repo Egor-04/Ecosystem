@@ -6,7 +6,7 @@ public class Herbivore : Creature
     {
         base.DoAction();
 
-        if (BreedTime <= 0f)
+        if (CurrentBreedTime <= 0f)
         {
             if (JoyPercent > 60 && Hunger > 50)
             {

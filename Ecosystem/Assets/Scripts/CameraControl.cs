@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraControl : MonoBehaviour
 {
@@ -30,24 +31,65 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        WindowsControl();
+        AndroidControl();
+    }
+
+    public void WindowsControl()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            _startMousePosition = Input.mousePosition;
-            _oldXPos = _newXPos;
-            _oldZPos = _newZPos;
+            if (Input.GetMouseButtonDown(0))
+            {
+                _startMousePosition = Input.mousePosition;
+                _oldXPos = _newXPos;
+                _oldZPos = _newZPos;
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                // „тобы работало правильно, надо сделать камере родительский пустой объект и установить нужны наклон. ј дальше все будет работать в локльных координатах
+                _currentMousePos = Input.mousePosition;
+                _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity / 100;
+                _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity / 100;
+                float newClampXPos = Mathf.Clamp(_newXPos, _minX, _maxX);
+                float newClampZPos = Mathf.Clamp(_newZPos, _minZ, _maxZ);
+                _cameraNewPosition = new Vector3(newClampXPos, _camera.transform.localPosition.y, newClampZPos);
+
+                _camera.transform.localPosition = _cameraNewPosition;
+            }
         }
+    }
 
-        if (Input.GetMouseButton(0))
+    public void AndroidControl()
+    {
+        if (Application.platform == RuntimePlatform.Android)
         {
-            // „тобы работало правильно, надо сделать камере родительский пустой объект и установить нужны наклон. ј дальше все будет работать в локльных координатах
-            _currentMousePos = Input.mousePosition;
-            _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity / 100;
-            _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity / 100;
-            float newClampXPos = Mathf.Clamp(_newXPos, _minX, _maxX);
-            float newClampZPos = Mathf.Clamp(_newZPos, _minZ, _maxZ);
-            _cameraNewPosition = new Vector3(newClampXPos, _camera.transform.localPosition.y, newClampZPos);
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.position.x > Screen.width && touch.phase == TouchPhase.Began)
+                {
+                    _startMousePosition = touch.position;
+                    _oldXPos = _newXPos;
+                    _oldZPos = _newZPos;
+                }
 
-            _camera.transform.localPosition = _cameraNewPosition;
+                if (touch.position.x > Screen.height && touch.phase == TouchPhase.Moved)
+                {
+                    _currentMousePos = touch.position;
+                    _newZPos = _oldXPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity;
+                    _newXPos = _oldZPos + (_currentMousePos.x - _startMousePosition.x) * _sensitivity;
+                    float newClampXPos = Mathf.Clamp(_newXPos, _minX, _maxX);
+                    float newClampZPos = Mathf.Clamp(_newZPos, _minZ, _maxZ);
+                    _cameraNewPosition = new Vector3(newClampXPos, _camera.transform.localPosition.y, newClampZPos);
+                    _camera.transform.position = _cameraNewPosition;
+                }
+
+                if (Input.touchCount == 2)
+                {
+                    Debug.LogError("Work");
+                }
+            }
         }
     }
 }
