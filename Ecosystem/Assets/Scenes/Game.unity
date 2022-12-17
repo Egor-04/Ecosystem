@@ -5491,8 +5491,8 @@ MonoBehaviour:
   Number: 0
   _container: {fileID: 0}
   _objectPrefab: {fileID: 4494875495488319289, guid: 4274362172401f4488a360b4682112bf, type: 3}
-  _selectedColor: {r: 0.7019608, g: 0.31764707, b: 0.3019608, a: 1}
-  _standartColor: {r: 1, g: 0.3882353, b: 0.3647059, a: 1}
+  _selectedColor: {r: 0.6415094, g: 0.48728722, b: 0.29352084, a: 1}
+  _standartColor: {r: 0.81960785, g: 0.6745098, b: 0.49019608, a: 1}
   _image: {fileID: 403456883}
   _itemSelector: {fileID: 1380269832}
 --- !u!1 &411942197
@@ -5997,8 +5997,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.28833008, y: -3.3863983}
+  m_SizeDelta: {x: -20.4708, y: 0.3699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626887606
 MonoBehaviour:
@@ -6429,8 +6429,8 @@ MonoBehaviour:
   Number: 0
   _container: {fileID: 0}
   _objectPrefab: {fileID: 9095838517129264607, guid: 83ac96c1d0aefe94eb6afb326427983d, type: 3}
-  _selectedColor: {r: 0.7294118, g: 0.75686276, b: 0.13333334, a: 1}
-  _standartColor: {r: 1, g: 1, b: 0.3647059, a: 1}
+  _selectedColor: {r: 0.6415094, g: 0.48728722, b: 0.29352084, a: 1}
+  _standartColor: {r: 0.81960785, g: 0.6745098, b: 0.49019608, a: 1}
   _image: {fileID: 774052615}
   _itemSelector: {fileID: 1380269832}
 --- !u!1 &843587974
@@ -6689,7 +6689,7 @@ MonoBehaviour:
   _startMousePosition: {x: 0, y: 0, z: 0}
   _currentMousePos: {x: 0, y: 0, z: 0}
   _cameraNewPosition: {x: 0, y: 0, z: 0}
-  _sensitivity: 10
+  _sensitivity: 0.1
   _minX: -120
   _maxX: 120
   _minZ: -120
@@ -7254,7 +7254,7 @@ GameObject:
   - component: {fileID: 1151573664}
   - component: {fileID: 1151573663}
   m_Layer: 5
-  m_Name: Creatures (Button) (1)
+  m_Name: World Options (Button)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8020,8 +8020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -285.87}
-  m_SizeDelta: {x: 0, y: -571.7467}
+  m_AnchoredPosition: {x: 0.375, y: -276.7862}
+  m_SizeDelta: {x: 0.75, y: -553.5791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1538797942
 MonoBehaviour:
@@ -8030,13 +8030,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538797940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.20784314}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8154,8 +8154,8 @@ MonoBehaviour:
   Number: 0
   _container: {fileID: 0}
   _objectPrefab: {fileID: 8095391555516962025, guid: 56aa938959ae9714491c29fd2fd8a371, type: 3}
-  _selectedColor: {r: 0.21176471, g: 0.7176471, b: 0.14901961, a: 1}
-  _standartColor: {r: 0.5686275, g: 1, b: 0.3647059, a: 1}
+  _selectedColor: {r: 0.6415094, g: 0.48728722, b: 0.29352084, a: 1}
+  _standartColor: {r: 0.81960785, g: 0.6745098, b: 0.49019608, a: 1}
   _image: {fileID: 1627025888}
   _itemSelector: {fileID: 1380269832}
 --- !u!1001 &1661040744

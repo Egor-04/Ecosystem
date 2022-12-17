@@ -8,6 +8,12 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private Vector3 _currentMousePos;
     [SerializeField] private Vector3 _cameraNewPosition;
 
+    [Header("Для приближения камеры двумя пальцами")]
+    [SerializeField] private Vector3 _startFirstFingerPosition;
+    [SerializeField] private Vector3 _startSecondFingerPosition;
+    [SerializeField] private Vector3 _currentFirstFingerPosition;
+    [SerializeField] private Vector3 _currentSecondFingerPosition;
+
     [Header("Sensitivity")]
     [SerializeField] private float _sensitivity = 5f;
 
@@ -19,9 +25,11 @@ public class CameraControl : MonoBehaviour
     public bool IsLock;
 
     private float _newXPos;
+    private float _newYPos;
     private float _newZPos;
 
     private float _oldXPos;
+    private float _oldYPos;
     private float _oldZPos;
 
     private void Start()
@@ -67,27 +75,45 @@ public class CameraControl : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (touch.position.x > Screen.width && touch.phase == TouchPhase.Began)
+                if (touch.phase == TouchPhase.Began)
                 {
                     _startMousePosition = touch.position;
                     _oldXPos = _newXPos;
                     _oldZPos = _newZPos;
                 }
 
-                if (touch.position.x > Screen.height && touch.phase == TouchPhase.Moved)
+                if (touch.phase == TouchPhase.Moved)
                 {
                     _currentMousePos = touch.position;
-                    _newZPos = _oldXPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity;
-                    _newXPos = _oldZPos + (_currentMousePos.x - _startMousePosition.x) * _sensitivity;
+                    _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity;
+                    _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity;
                     float newClampXPos = Mathf.Clamp(_newXPos, _minX, _maxX);
                     float newClampZPos = Mathf.Clamp(_newZPos, _minZ, _maxZ);
                     _cameraNewPosition = new Vector3(newClampXPos, _camera.transform.localPosition.y, newClampZPos);
-                    _camera.transform.position = _cameraNewPosition;
+                    _camera.transform.localPosition = _cameraNewPosition;
                 }
 
-                if (Input.touchCount == 2)
+            }
+
+            for (int i = 0; i < Input.touches.Length; i++)
+            {
+                Touch[] touch = Input.touches;
+                // Приближение камеры двумя пальцами
+                if (Input.touchCount == 2 && touch[i].phase == TouchPhase.Began)
                 {
-                    Debug.LogError("Work");
+                    _startFirstFingerPosition = touch[0].position;
+                    _startSecondFingerPosition = touch[1].position;
+                    _oldZPos = _newZPos;
+                }
+
+                if (Input.touchCount == 2 && touch[i].phase == TouchPhase.Moved)
+                {
+                    _currentFirstFingerPosition = touch[0].position;
+                    _currentSecondFingerPosition = touch[1].position;
+                    _newYPos = _oldYPos - (_currentFirstFingerPosition.x - _currentSecondFingerPosition.x) * _sensitivity;
+                    float newClampYPos = Mathf.Clamp(_newYPos, _minZ, _maxZ);
+                    _cameraNewPosition = new Vector3(_camera.transform.localPosition.x, newClampYPos - _camera.transform.localPosition.y, _camera.transform.localPosition.z);
+                    _camera.transform.localPosition = _cameraNewPosition;
                 }
             }
         }
