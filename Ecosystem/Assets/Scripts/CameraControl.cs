@@ -19,6 +19,7 @@ public class CameraControl : MonoBehaviour
 
     [Header("Confines")]
     [SerializeField] private float _minX = -100, _maxX = 100;
+    [SerializeField] private float _minY = -100, _maxY = 100;
     [SerializeField] private float _minZ = -100, _maxZ = 100;
 
     [Header("Camera State")]
@@ -73,47 +74,52 @@ public class CameraControl : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android)
         {
-            foreach (Touch touch in Input.touches)
+            if (Input.touchCount < 2)
             {
-                if (touch.phase == TouchPhase.Began)
+                foreach (Touch touch in Input.touches)
                 {
-                    _startMousePosition = touch.position;
-                    _oldXPos = _newXPos;
-                    _oldZPos = _newZPos;
-                }
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        _startMousePosition = touch.position;
+                        _oldXPos = _newXPos;
+                        _oldZPos = _newZPos;
+                    }
 
-                if (touch.phase == TouchPhase.Moved)
-                {
-                    _currentMousePos = touch.position;
-                    _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity;
-                    _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity;
-                    float newClampXPos = Mathf.Clamp(_newXPos, _minX, _maxX);
-                    float newClampZPos = Mathf.Clamp(_newZPos, _minZ, _maxZ);
-                    _cameraNewPosition = new Vector3(newClampXPos, _camera.transform.localPosition.y, newClampZPos);
-                    _camera.transform.localPosition = _cameraNewPosition;
-                }
+                    if (touch.phase == TouchPhase.Moved)
+                    {
+                        _currentMousePos = touch.position;
+                        _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity;
+                        _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity;
+                        float newClampXPos = Mathf.Clamp(_newXPos, _minX, _maxX);
+                        float newClampZPos = Mathf.Clamp(_newZPos, _minZ, _maxZ);
+                        _cameraNewPosition = new Vector3(newClampXPos, _camera.transform.localPosition.y, newClampZPos);
+                        _camera.transform.localPosition = _cameraNewPosition;
+                    }
 
+                }
             }
-
-            for (int i = 0; i < Input.touches.Length; i++)
+            else
             {
-                Touch[] touch = Input.touches;
-                // Приближение камеры двумя пальцами
-                if (Input.touchCount == 2 && touch[i].phase == TouchPhase.Began)
+                for (int i = 0; i < Input.touches.Length; i++)
                 {
-                    _startFirstFingerPosition = touch[0].position;
-                    _startSecondFingerPosition = touch[1].position;
-                    _oldZPos = _newZPos;
-                }
+                    Touch[] touch = Input.touches;
+                    // Приближение камеры двумя пальцами
+                    if (touch[i].phase == TouchPhase.Began)
+                    {
+                        _startFirstFingerPosition = touch[0].position;
+                        _startSecondFingerPosition = touch[1].position;
+                        _oldYPos = _newYPos;
+                    }
 
-                if (Input.touchCount == 2 && touch[i].phase == TouchPhase.Moved)
-                {
-                    _currentFirstFingerPosition = touch[0].position;
-                    _currentSecondFingerPosition = touch[1].position;
-                    _newYPos = _oldYPos - (_currentFirstFingerPosition.x - _currentSecondFingerPosition.x) * _sensitivity;
-                    float newClampYPos = Mathf.Clamp(_newYPos, _minZ, _maxZ);
-                    _cameraNewPosition = new Vector3(_camera.transform.localPosition.x, newClampYPos - _camera.transform.localPosition.y, _camera.transform.localPosition.z);
-                    _camera.transform.localPosition = _cameraNewPosition;
+                    if (touch[i].phase == TouchPhase.Moved)
+                    {
+                        _currentFirstFingerPosition = touch[0].position;
+                        _currentSecondFingerPosition = touch[1].position;
+                        _newYPos = _oldYPos - (_currentFirstFingerPosition.x - _currentSecondFingerPosition.x) * _sensitivity;// Найти способ приближения экрана
+                        float newClampYPos = Mathf.Clamp(_newYPos, _minY, _maxY);
+                        _cameraNewPosition = new Vector3(_camera.transform.localPosition.x, newClampYPos, _camera.transform.localPosition.z);
+                        _camera.transform.localPosition = _cameraNewPosition;
+                    }
                 }
             }
         }
