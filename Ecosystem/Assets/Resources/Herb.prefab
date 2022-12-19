@@ -115,8 +115,8 @@ MonoBehaviour:
   NutritionalValue: 0
   Health: 100
   Hunger: 100
-  BreedTimeCoolDown: 50
-  BreedTime: 50
+  BreedingTimeCoolDown: 50
+  CurrentBreedTime: 50
   JoyPercent: 0
   EnergyConsumption: 0
   Agent: {fileID: 0}

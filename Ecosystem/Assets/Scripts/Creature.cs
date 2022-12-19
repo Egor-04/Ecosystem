@@ -201,7 +201,7 @@ public abstract class Creature : MonoBehaviour
             if (FindedCreature.Health <= 0f)
             {
                 GetNutrients();
-                //FindedCreature.Kill();
+                //FindedCreature.Kill(); Вызывается два раза, так как в двух условиях вызывается
                 FindedCreature = null;
                 return;
             }
@@ -229,7 +229,7 @@ public abstract class Creature : MonoBehaviour
         Health -= damage;
     }
 
-    public void Kill()
+    public virtual void Kill()
     {
         Health = 0f;
         Agent.enabled = false;
