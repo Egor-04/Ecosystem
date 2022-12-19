@@ -20,6 +20,7 @@ public class ParticleSpawnPoint : MonoBehaviour
             {
                 Vector3 position = _collisionEvents[i].intersection - _collisionEvents[i].normal * Random.Range(0.3f, 0.8f);
                 Instantiate(_itemSelector.GetSelectedItem(), position, Quaternion.identity);
+                CreaturesCounter.InitCreatureCounter.AddCreature(_itemSelector.GetCreature());
                 i++;
             }
         }

@@ -11,7 +11,10 @@ public class Item : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Color _standartColor;
     [SerializeField] private Image _image;
     [SerializeField] private ItemSelector _itemSelector;
+    
+    private Creature _creature;
     private bool _isSelectedNow;
+
 
     private void Awake()
     {
@@ -23,6 +26,11 @@ public class Item : MonoBehaviour, IPointerDownHandler
             {
                 Number = i;
             }
+        }
+
+        if (_objectPrefab.GetComponent<Creature>())
+        {
+            _creature = _objectPrefab.GetComponent<Creature>();
         }
 
         _image = GetComponent<Image>();
@@ -41,6 +49,11 @@ public class Item : MonoBehaviour, IPointerDownHandler
     public GameObject GetItemPrefab()
     {
         return _objectPrefab;
+    }
+
+    public Creature GetCreature()
+    {
+        return _creature;
     }
 
     public void SelectColor()

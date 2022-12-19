@@ -139,8 +139,8 @@ MonoBehaviour:
   NutritionalValue: 0
   Health: 100
   Hunger: 100
-  BreedTimeCoolDown: 50
-  BreedTime: 10
+  BreedingTimeCoolDown: 50
+  CurrentBreedTime: 50
   JoyPercent: 0
   EnergyConsumption: 0
   Agent: {fileID: 0}
@@ -238,6 +238,14 @@ PrefabInstance:
     - target: {fileID: 7136957444475375799, guid: 050ca5f4311343a4fbb0be535c98ddb9, type: 3}
       propertyPath: m_Name
       value: Canvas Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136957444475375799, guid: 050ca5f4311343a4fbb0be535c98ddb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136957445077073699, guid: 050ca5f4311343a4fbb0be535c98ddb9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 050ca5f4311343a4fbb0be535c98ddb9, type: 3}

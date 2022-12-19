@@ -8,7 +8,6 @@ public class SliderVisualizer : MonoBehaviour
 
     public void SliderVisualize(Slider slider)
     {
-        Debug.LogError(slider);
         _textTimeSpeed.text = slider.value.ToString("0.00");
     }
 }

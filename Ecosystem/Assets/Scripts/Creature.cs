@@ -201,7 +201,7 @@ public abstract class Creature : MonoBehaviour
             if (FindedCreature.Health <= 0f)
             {
                 GetNutrients();
-                FindedCreature.Kill();
+                //FindedCreature.Kill();
                 FindedCreature = null;
                 return;
             }
@@ -217,6 +217,7 @@ public abstract class Creature : MonoBehaviour
         if (FindedCreature)
         {
             Instantiate(gameObject, transform.position + Vector3.forward, Quaternion.identity);
+            CreaturesCounter.InitCreatureCounter.AddCreature(this);
             CurrentBreedTime = BreedingTimeCoolDown;
             IsReadyToBreed = false;
             return;
@@ -232,6 +233,7 @@ public abstract class Creature : MonoBehaviour
     {
         Health = 0f;
         Agent.enabled = false;
+        CreaturesCounter.InitCreatureCounter.RemoveCreature(this);
         gameObject.SetActive(false);
     }
 

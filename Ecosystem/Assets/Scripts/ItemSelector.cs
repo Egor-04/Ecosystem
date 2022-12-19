@@ -38,6 +38,11 @@ public class ItemSelector : MonoBehaviour
         return _items[_selectedNumber].GetItemPrefab();
     }
 
+    public Creature GetCreature()
+    {
+        return _items[_selectedNumber].GetCreature();
+    }
+
     public void DeselectAll()
     {
         for (int i = 0; i < _items.Length; i++)
