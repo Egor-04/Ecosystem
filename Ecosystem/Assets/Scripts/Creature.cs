@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum CreatureType {Carnivores, Herbivores, Herb} //Плотоядные, Травоядные и Растения
+public enum CreatureType {Carnivores, Herbivores, Herb}
 public abstract class Creature : MonoBehaviour
 {
     [Header("Creature Stats")]
     public CreatureType CreatureType;
     public int ID;
     public float NutritionalValue;
-    public float Health = 100f; // Здоровье
-    public float Hunger = 100f; // Голод
+    public float Health = 100f;
+    public float Hunger = 100f;
     public float BreedingTimeCoolDown = 50f;
     public float CurrentBreedTime = 50f;
     public int JoyPercent;

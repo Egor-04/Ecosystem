@@ -80,7 +80,7 @@ public class CameraControl : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-                // „тобы работало правильно, надо сделать камере родительский пустой объект и установить нужны наклон. ј дальше все будет работать в локльных координатах
+                // „тобы работало правильно, надо сделать камере родительский пустой объект и установить нужный наклон. ƒальше все будет работать в локльных координатах
                 _currentMousePos = Input.mousePosition;
                 _newXPos = _oldXPos - (_currentMousePos.x - _startMousePosition.x) * _sensitivity / 100;
                 _newZPos = _oldZPos - (_currentMousePos.y - _startMousePosition.y) * _sensitivity / 100;
