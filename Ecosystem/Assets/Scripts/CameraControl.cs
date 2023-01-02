@@ -57,11 +57,14 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
-        WindowsControl();
-        ZoomCameraWindows();
+        if (IsLock == false)
+        {
+            WindowsControl();
+            ZoomCameraWindows();
 
-        AndroidControl();
-        ZoomCameraAndroid();
+            AndroidControl();
+            ZoomCameraAndroid();
+        }
     }
 
     public void WindowsControl()
