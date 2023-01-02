@@ -7,21 +7,30 @@ public abstract class Creature : MonoBehaviour
     [Header("Creature Stats")]
     public CreatureType CreatureType;
     public int ID;
-    public float NutritionalValue;
-    public float Health = 100f;
-    public float Hunger = 100f;
-    public float BreedingTimeCoolDown = 50f;
-    public float CurrentBreedTime = 50f;
-    public int JoyPercent;
-    public float EnergyConsumption;
-    public NavMeshAgent Agent;
+    [SerializeField] internal float NutritionalValue;
+    [SerializeField] internal float Health = 100f;
+    [SerializeField] internal float Hunger = 100f;
+    [SerializeField] internal float BreedingTimeCoolDown = 50f;
+    [SerializeField] internal float CurrentBreedTime = 50f;
+    [SerializeField] internal int JoyPercent;
+    [SerializeField] internal float EnergyConsumption;
+    [SerializeField] internal NavMeshAgent Agent;
+
+    [Header("Minimal Requirements")]
+    [SerializeField] internal int MinimalJoy = 60;
+    [SerializeField] internal int MinimalHunger = 50;
+    [SerializeField] internal float SpeedRangeMin = 5f;
+    [SerializeField] internal float SpeedRangeMax = 10f;
+    [SerializeField] internal float AttackPowerRangeMin = 5f;
+    [SerializeField] internal float AttackPowerRangeMax = 10f;
+
 
     [Header("Creature Sub-Stats")]
-    public float Speed;
-    public float AttackPower;
-    public float UseRadius;
-    public Color EatZoneColor;
-    public Creature FindedCreature;
+    [SerializeField] internal float Speed;
+    [SerializeField] internal float AttackPower;
+    [SerializeField] internal float UseRadius;
+    [SerializeField] internal Color EatZoneColor;
+    [SerializeField] internal Creature FindedCreature;
 
     [Header("Current creature State")]
     public bool IsHunger;
@@ -39,9 +48,9 @@ public abstract class Creature : MonoBehaviour
     private void Awake()
     {
         ID = Random.Range(1, 9999999);
-        Speed = Random.Range(5f, 10f);
+        Speed = Random.Range(SpeedRangeMin, SpeedRangeMax);
         CurrentBreedTime = BreedingTimeCoolDown;
-        AttackPower = Random.Range(5f, 10f);
+        AttackPower = Random.Range(AttackPowerRangeMin, AttackPowerRangeMax);
         EnergyConsumption = Random.Range(1f, 3f);
         Agent = GetComponent<NavMeshAgent>();
         Agent.speed = Speed;

@@ -8,7 +8,7 @@ public class Carnivore : Creature
 
         if (CurrentBreedTime <= 0f)
         {
-            if (JoyPercent >= 60 && Hunger > 50f)
+            if (JoyPercent >= MinimalJoy && Hunger > MinimalHunger)
             {
                 IsReadyToBreed = true;
                 Creature creature = FindNearbyCreature();
