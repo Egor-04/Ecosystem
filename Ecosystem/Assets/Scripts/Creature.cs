@@ -224,8 +224,9 @@ public abstract class Creature : MonoBehaviour
     {
         if (FindedCreature)
         {
-            Instantiate(gameObject, transform.position + Vector3.forward, Quaternion.identity);
+            Creature creature = Instantiate(gameObject, transform.position + Vector3.forward, Quaternion.identity).GetComponent<Creature>();
             CreaturesCounter.InitCreatureCounter.AddCreature(this);
+            ChangeCreatureOptions.InitChangeCreatureOptions.AddNewCreature(creature);
             CurrentBreedTime = BreedingTimeCoolDown;
             IsReadyToBreed = false;
             return;
@@ -242,6 +243,7 @@ public abstract class Creature : MonoBehaviour
         Health = 0f;
         Agent.enabled = false;
         CreaturesCounter.InitCreatureCounter.RemoveCreature(this);
+        ChangeCreatureOptions.InitChangeCreatureOptions.RemoveCreature(this);
         gameObject.SetActive(false);
     }
 

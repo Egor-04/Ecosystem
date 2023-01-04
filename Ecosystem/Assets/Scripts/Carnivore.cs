@@ -31,7 +31,7 @@ public class Carnivore : Creature
             }
         }
 
-        if (Hunger <= 50f)
+        if (Hunger <= MinimalHunger)
         {
             IsHunger = true;
             Creature creature = FindNearbyCreature();

@@ -19,8 +19,9 @@ public class ParticleSpawnPoint : MonoBehaviour
             while (i < collisionNumbers)
             {
                 Vector3 position = _collisionEvents[i].intersection - _collisionEvents[i].normal * Random.Range(0.3f, 0.8f);
-                Instantiate(_itemSelector.GetSelectedItem(), position, Quaternion.identity);
+                Creature creature = Instantiate(_itemSelector.GetSelectedItem(), position, Quaternion.identity).GetComponent<Creature>();
                 CreaturesCounter.InitCreatureCounter.AddCreature(_itemSelector.GetCreature());
+                ChangeCreatureOptions.InitChangeCreatureOptions.AddNewCreature(creature);
                 i++;
             }
         }
