@@ -18,7 +18,7 @@ public class ChangeCreatureOptions : MonoBehaviour
 
     public void SetJoyValue(Slider slider)
     {
-        Debug.LogError("CHANGEED");
+        Debug.LogError("CHANGED");
         for (int i = 0; i < _creatureList.Count; i++)
         {
             _creatureList[i].MinimalJoy = Convert.ToInt32(slider.value);
@@ -53,7 +53,7 @@ public class ChangeCreatureOptions : MonoBehaviour
     {
         for (int i = 0; i < _creatureList.Count; i++)
         {
-            _creatureList[i].Speed = Convert.ToSingle(inputfield.text);
+            _creatureList[i].Agent.speed = Convert.ToSingle(inputfield.text);
         }
     }
 
