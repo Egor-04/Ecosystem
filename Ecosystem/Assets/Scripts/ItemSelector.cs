@@ -6,11 +6,18 @@ public class ItemSelector : MonoBehaviour
     [SerializeField] private int _selectedNumber = 1;
     [SerializeField] private Item[] _items;
 
-    public void SetSelectorState(bool state)
+
+    public void LockState()
     {
-        _isLocked = state;
+        _isLocked = true;
+        DeselectAll();
     }
 
+    public void UnlockState()
+    {
+        _isLocked = false;
+    }
+    
     public bool GetSelectorState()
     {
         return _isLocked;
@@ -28,9 +35,11 @@ public class ItemSelector : MonoBehaviour
 
     public void Select(Item item)
     {
-        //SetSelectorState(false); Если нужно блокировать спавн объектов вовремя передвижения
-        item.SetItemState(true);
-        _selectedNumber = item.Number;
+        if (_isLocked == false)
+        {
+            item.SetItemState(true);
+            _selectedNumber = item.Number;
+        }
     }
 
     public GameObject GetSelectedItem()

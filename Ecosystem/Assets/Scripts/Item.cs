@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour, IPointerDownHandler
 {
     public int Number;
+    [SerializeField] private bool _isLocker;
     [SerializeField] private Transform _container;
     [SerializeField] private GameObject _objectPrefab;
     [SerializeField] private Color _selectedColor;
@@ -28,9 +29,12 @@ public class Item : MonoBehaviour, IPointerDownHandler
             }
         }
 
-        if (_objectPrefab.GetComponent<Creature>())
+        if (_objectPrefab)
         {
-            _creature = _objectPrefab.GetComponent<Creature>();
+            if (_objectPrefab.GetComponent<Creature>())
+            {
+                _creature = _objectPrefab.GetComponent<Creature>();
+            }
         }
 
         _image = GetComponent<Image>();
@@ -68,6 +72,15 @@ public class Item : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (_isLocker)
+        {
+            _itemSelector.LockState();
+        }
+        else
+        {
+            _itemSelector.UnlockState();
+        }
+
         _itemSelector.DeselectAll();
         _itemSelector.Select(this);
 
