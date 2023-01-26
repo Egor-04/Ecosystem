@@ -153,4 +153,35 @@ public class ChangeCreatureOptions : MonoBehaviour
                 }
         }
     }
+
+    public void SetBreedTimeValue(TMP_InputField inputfield)
+    {
+        switch (_creatureOptionsType)
+        {
+            case CreatureOptions.All:
+                {
+                    for (int i = 0; i < _creatureList.Count; i++)
+                    {
+                        _creatureList[i].BreedingTimeCoolDown = Convert.ToSingle(inputfield.text);
+                    }
+                    break;
+                }
+            case CreatureOptions.Carnivores:
+                {
+                    for (int i = 0; i < _creatureCarnivoresList.Count; i++)
+                    {
+                        _creatureCarnivoresList[i].BreedingTimeCoolDown = Convert.ToSingle(inputfield.text);
+                    }
+                    break;
+                }
+            case CreatureOptions.Herbivores:
+                {
+                    for (int i = 0; i < _creatureHerbivoresList.Count; i++)
+                    {
+                        _creatureHerbivoresList[i].BreedingTimeCoolDown = Convert.ToSingle(inputfield.text);
+                    }
+                    break;
+                }
+        }
+    }
 }
