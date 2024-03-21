@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8095391555516962025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8600006, y: 2.06, z: 1.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,6 +120,12 @@ MonoBehaviour:
   JoyPercent: 0
   EnergyConsumption: 0
   Agent: {fileID: 0}
+  MinimalJoy: 60
+  MinimalHunger: 50
+  SpeedRangeMin: 5
+  SpeedRangeMax: 10
+  AttackPowerRangeMin: 5
+  AttackPowerRangeMax: 10
   Speed: 0
   AttackPower: 0
   UseRadius: 0
