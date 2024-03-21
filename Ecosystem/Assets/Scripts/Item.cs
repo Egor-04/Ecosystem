@@ -72,7 +72,7 @@ public class Item : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (_isLocker)
+        if (_isLocker || Number == 0)
         {
             _itemSelector.LockState();
         }
